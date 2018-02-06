@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+
+  sailsjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: nixon1333/sailsjs-core:stable
+    ports:
+      - 80:1337
+    volumes:
+      - .:/usr/src/app
+
+  mysqlsails:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: examplerootPW
+      MYSQL_DATABASE: sails_db
+      MYSQL_USER: sails_user
+      MYSQL_PASSWORD: sailsPowdj940
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
