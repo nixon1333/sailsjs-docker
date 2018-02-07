@@ -12,8 +12,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json package.json 
 # - then it needs to run 'npm install' to install dependencies from that file
-RUN npm install && npm cache clean --force
-RUN npm install sails -g
+RUN npm install && npm cache clean --force && npm install sails -g
 # - to keep it clean and small, run 'npm cache clean --force' after above
 # - then it needs to copy in all files from current directory
 COPY . .
